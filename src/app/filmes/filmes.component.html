@@ -1,3 +1,14 @@
-{{ filmes[0].title + "-" + filmes[0].overview }} <br>
-{{ filmes[1].title + "-" + filmes[1].overview  }}<br>
-{{ filmes[2].title + "-" + filmes[2].overview  }}<br>
+<div class="container">
+  <div class="grid-container">
+
+    <div class="card" style="width: 18rem;" *ngFor="let filme of filmes">
+      <img src="https://image.tmdb.org/t/p/w500{{filme.poster_path}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{filme.title}}</h5>
+        <p class="card-text">{{filme.overview}}</p>
+        <a href="{{filme.overview}}" class="btn btn-primary">Saber mais</a>
+      </div>
+    </div>
+
+  </div>
+</div>

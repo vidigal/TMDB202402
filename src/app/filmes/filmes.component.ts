@@ -7,18 +7,19 @@ import { FilmesService } from './filmes.service';
   styleUrl: './filmes.component.scss'
 })
 export class FilmesComponent implements OnInit {
-  
+
   filmes: any;
 
-  constructor(private filmeService: FilmesService) {}
+  constructor(private filmeService: FilmesService) { }
 
   ngOnInit(): void {
-     this.filmeService.listarFilmesTrending().subscribe(
+
+    this.filmeService.listarFilmesTrending().subscribe(
       data => {
         this.filmes = data.results;
-        console.log(this.filmes)
       }
-     );
+    );
+
   }
 
 }
