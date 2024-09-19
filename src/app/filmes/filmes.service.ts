@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IFilmeTrendingResponse } from '../model/ifilmeTrendingResponse';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +15,15 @@ export class FilmesService {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjFjM2M5OTYxYTUyNWQ2OWQ4MTI1ZTFhZGY5NzBiNyIsInN1YiI6IjYyOWZlNWNlMzVkMWJjMDA5YjU3NzdlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zBrUteoQPPsjlA4SjGddHnB5t_bFMobHOsNdUAbkzYw'
+        'Authorization': 'Bearer '+environment.apiKey
       })
     };
   }
 
-  listarFilmesTrending(): Observable<any> {
-    let url = "https://api.themoviedb.org/3/trending/movie/day?language=pt-BR";
+  listarFilmesTrending(): Observable<IFilmeTrendingResponse> {
+    let url = environment.api_url+"trending/movie/day?language=pt-BR&page=1";
     const options = this.getHeaders();
 
-    return this.http.get<any>(url, options);
+    return this.http.get<IFilmeTrendingResponse>(url, options);
   }
 }

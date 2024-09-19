@@ -1,5 +1,10 @@
 <div class="container">
-  <div class="grid-container">
+
+  <div class="alert alert-danger" role="alert" *ngIf="isError">
+    Houve um erro ao listar filmes
+  </div>
+
+  <div class="grid-container"  *ngIf="!isError">
 
     <div class="card" style="width: 18rem;" *ngFor="let filme of filmes">
       <img src="https://image.tmdb.org/t/p/w500{{filme.poster_path}}" class="card-img-top" alt="...">
