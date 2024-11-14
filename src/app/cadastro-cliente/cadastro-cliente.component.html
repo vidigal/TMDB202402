@@ -1,0 +1,47 @@
+<div class="blank-layout-container justify-content-center align-items-center bg-light-primary">
+<div class="position-relative row w-100 h-100 bg-gredient justify-content-center">
+    <div class="col-lg-4 d-flex align-items-center">
+        <mat-card class="cardWithShadow boxed-auth">
+            <mat-card-content class="p-32">
+                <div class="text-center">
+                </div>
+
+                <div class="or-border m-t-30">Cadastro de Cliente</div>
+
+                <form class="m-t-30" [formGroup]="clienteForm" (submit)="onSubmit()">
+
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Nome</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput formControlName="nome" />
+                        @if (clienteForm.get('nome')?.invalid && clienteForm.get('nome')?.touched) {
+                        <mat-error>Nome inválido</mat-error>
+                        }
+                    </mat-form-field>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">CPF</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput formControlName="cpf" />
+                        @if (clienteForm.get('cpf')?.invalid && clienteForm.get('cpf')?.touched) {
+                        <mat-error>CPF inválido</mat-error>
+                        }
+                    </mat-form-field>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">E-mail</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput formControlName="email" />
+                        @if (clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched) {
+                        <mat-error>E-mail inválido</mat-error>
+                        }
+                    </mat-form-field>
+
+                    <div class="m-t-30">
+                        <button mat-flat-button color="primary" class="w-100" type="submit">Enviar</button>
+                    </div>
+                </form>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+</div>
